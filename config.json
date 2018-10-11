@@ -1,0 +1,216 @@
+{
+    "coin": "bittube",
+    "symbol": "TUBE",
+    "coinUnits": 100000000,
+    "coinDifficultyTarget": 120,
+
+    "logging": {
+        "files": {
+            "level": "info",
+            "directory": "logs",
+            "flushInterval": 5
+        },
+        "console": {
+            "level": "info",
+            "colors": true
+        }
+    },
+
+    "poolServer": {
+        "enabled": true,
+        "clusterForks": 12,
+        "variant1block": 0,
+        "poolAddress": "bxdyeJzwPWH3pzMdTA6NM2aFD9ivMDijtGZduWqNntBcFJmhsecXUJrLrKzomNhW3sRxZMCN9UPCsYRCPQpx3LY31frzpZ9gD",
+        "blockRefreshInterval": 50,
+        "blockRefreshForce": 200,
+        "minerTimeout": 900,
+        "ports": [
+            {
+                "port": 2222,
+                "difficulty": 5000,
+                "desc": "Low end / CPU",
+        		"varDiff": true,
+				"hidden":true
+            },
+            {
+                "port": 2233,
+                "difficulty": 50000,
+                "desc": "Mid range / GPU ",
+        		"varDiff": true,
+				"hidden":true
+            },
+            {
+                "port": 2244,
+                "difficulty": 100000,
+                "desc": "Rig",
+        		"varDiff": true,
+				"hidden":true
+            },
+            {
+                "port": 9001,
+                "difficulty": 200,
+                "desc": "Low end hardware",
+				"varDiff":false,
+				"hidden":true
+            },
+            {
+                "port": 11111,
+                "difficulty": 5000,
+				"varDiff":true,
+                "desc": "Low end hardware"
+            },
+            {
+                "port": 13333,
+                "difficulty": 50000,
+				"varDiff":true,
+                "desc": "Low end hardware"
+            },
+            {
+                "port": 15555,
+				"varDiff":true,
+                "difficulty": 200000,
+                "desc": "Mid range hardware"
+            },
+            {
+                "port": 17777,
+				"varDiff":true,
+                "difficulty": 500000,
+                "desc": "High end hardware"
+            },
+            {
+                "port": 19999,
+                "difficulty": 1000000,
+                "desc": "Rigs",
+				"varDiff":false
+            }
+        ],
+        "varDiff": {
+            "minDiff": 5000,
+            "maxDiff": 10000000,
+            "targetTime": 120,
+            "retargetTime": 40,
+            "variancePercent": 30,
+            "maxJump": 100
+        },
+        "fixedDiff": {
+            "enabled": true,
+            "addressSeparator": "."
+        },
+        "shareTrust": {
+            "enabled": false,
+            "min": 400,
+            "stepDown": 3,
+            "threshold": 10,
+            "penalty": 30
+        },
+        "banning": {
+            "enabled": true,
+            "time": 600,
+            "invalidPercent": 25,
+            "checkThreshold": 30
+        },
+        "slushMining": {
+            "enabled": false,
+            "weight": 120,
+            "lastBlockCheckRate": 1
+        }
+    },
+
+    "payments": {
+        "enabled": true,
+        "interval": 300,
+        "maxAddresses": 30,
+        "mixin": 2,
+        "priority":1,
+        "transferFee":   	                 500,
+        "minPayment":                 1000000000,
+        "maxTransactionAmount":     500000000000,
+        "denomination":                        1,
+        "minPayment2":                  10000000,
+        "minPayment3":                2500000000,
+		"feeBuffer":                  1000000000
+    },
+
+    "blockUnlocker": {
+        "enabled": true,
+        "interval": 60,
+        "depth": 10,
+        "poolFee": 0,
+		"heightfix":0,
+        "devDonation": 1,
+        "coreDevDonation": 0.0,
+        "extraFeaturesDevDonation":0
+    },
+
+    "api": {
+        "enabled": true,
+        "hashrateWindow": 900,
+        "updateInterval": 10,
+        "port": 8118,
+        "blocks": 20,
+		"workerblocks": 10,
+        "payments": 20,
+        "password": "your_paskjhkjhkjhsword"
+    },
+
+    "daemon": {
+        "host": "127.0.0.1",
+        "port": 24182
+    },
+
+    "wallet": {
+        "host": "127.0.0.1",
+        "port": 3993
+    },
+
+    "redis": {
+        "host": "127.0.0.1",
+        "port": 6379,
+        "db": 4
+    },
+
+    "monitoring": {
+        "daemon": {
+            "checkInterval": 60,
+            "rpcMethod": "getblockcount"
+        },
+        "wallet": {
+            "checkInterval": 20,
+            "rpcMethod": "getbalance"
+        }
+    },
+
+    "charts": {
+        "pool": {
+            "hashrate": {
+                "enabled": true,
+                "updateInterval": 720,
+                "stepInterval": 1800,
+                "maximumPeriod": 432000
+            },
+            "workers": {
+                "enabled": true,
+                "updateInterval": 720,
+                "stepInterval": 1800,
+                "maximumPeriod": 432000
+            },
+            "difficulty": {
+                "enabled": true,
+                "updateInterval": 720,
+                "stepInterval": 1800,
+                "maximumPeriod": 432000
+            }
+        },
+        "user": {
+            "hashrate": {
+                "enabled": true,
+                "updateInterval": 60,
+                "stepInterval": 600,
+                "maximumPeriod": 172800
+            },
+            "payments": {
+                "enabled": true
+            }
+        }
+    }
+}
